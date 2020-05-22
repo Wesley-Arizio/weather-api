@@ -39,12 +39,14 @@ export default class Dashboard extends Component{
                 axios.get("http://api.weatherstack.com/current", { params })
                     .then(response => {
                         this.setState({
+                            city: "",
                             name: response.data.location.name,
                             country: response.data.location.country,
-                            temperature: response.data.current.temperature,
+                            temperature: `${response.data.current.temperature}° C `,
                             weather: response.data.current.weather_descriptions
                         })
                         console.log(response.data)
+
                 });
             }catch(error){
                     console.log(error)
@@ -54,34 +56,35 @@ export default class Dashboard extends Component{
         
         return(
             <section className="section__container">
-                <form className="section__container--input" onSubmit={this.handleSubmit}>
-                    <input 
-                        type="text"
-                        className="input--city" 
-                        placeholder="Type a city name: " 
-                        value={ this.state.city }
-                        onChange={this.handleChange}
-                        />
-                    <input type="submit" className="input-submit" name="send" value="SEND" />
-                </form>
-                
-                <section className="section__container--display">
-                    <div className="section__container--card">
-                        <ul className="card__region">
-                            <li>{this.state.name} </li>
-                            <li>{this.state.country}</li>
-                        </ul>
-                        <div className="card__temperature">
-                            <div className="temperature">
-                                <span>{this.state.temperature} </span>
+                <div className="section__container--group">     
+                    <form className="section__container--input" onSubmit={this.handleSubmit}>
+                        <input 
+                            type="text"
+                            className="input--city" 
+                            placeholder="Type a city name: " 
+                            value={ this.state.city}
+                            onChange={this.handleChange}
+                            />
+                        <input type="submit" className="input-submit" name="send" value="SEND" />
+                    </form>
+                    
+                    <section className="section__container--display">
+                        <div className="section__container--card">
+                            <ul className="card__region">
+                                <li>{this.state.name} </li>
+                                <li>{this.state.country}</li>
+                            </ul>
+                            <div className="card__temperature">
+                                <div className="temperature">
+                                    <span> {this.state.temperature} </span>
+                                </div>
+                            </div>
+                            <div className="card-weather">
                                 <span> {this.state.weather}  </span>
                             </div>
                         </div>
-                        <div className="card-weather">
-                            <span> {this.state.weather}  </span>
-                        </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
             </section>
         );
     }
