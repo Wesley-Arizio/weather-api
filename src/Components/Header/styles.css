@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+.header{
+    width: 100%;
+    height: 100px;
+    padding: 0 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.header__container--title{
+    font-size: 15px;
+    font-family: 'Montserrat';
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+.handle-switch{
+    border: 1px solid #00BFFF;
+}
+
+@media(min-width: 768px){
+    .header__container--title{
+        font-size: 25px;
+        font-family: 'Montserrat';
+        letter-spacing: 2px;
+    }
+}
+@media(min-width: 1024px){
+    .header{
+        padding: 0 50px;
+    }
+}

@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;400&display=swap');
+
+
+.section__container{
+    width: 100%; 
+    height: auto;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.section__container--input{
+    width: 100%;
+    height: 60px;
+    padding: 0 10px;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section__container--input input{
+    height: 100%;
+    border-radius: 50px;
+}
+
+.input--city{
+    width: 180px;
+    background: transparent;
+    border: 1px solid #00BFFF;
+    padding: 7px 25px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #00BFFF;
+}
+
+.input--city::placeholder{
+    color: #00BFFF;           
+}
+
+.input-submit{
+    width: 100px; 
+    background:#00BFFF ;
+    border: none;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.input-submit:hover{
+    background: rgb(2, 155, 206) ;
+}
+
+
+.section__container--display{
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+}
+
+.section__container--card{
+    width: 100%;
+    border-radius: 50px ;
+    background: #00BFFF;
+    padding: 40px 30px; 
+}
+.card__region{
+    width: 100%;
+    margin: 0 auto;
+    list-style: none;
+    text-align: j;
+    font-family: 'Roboto';
+    color: white;
+    text-align: center;
+    font-weight: 300;
+}
+.card__region li:first-child{
+    font-size: 30px;
+    margin: 3px;
+}
+
+.card__temperature{
+    width: 100%;
+    height: 60px;
+    padding: 5px ;
+    margin-top: 80px;
+}
+
+.temperature{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 50px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #E5F5FF;
+
+    font-family: 'Roboto';
+    font-weight: 400;
+    color: #47525E;
+}
+
+.card-weather{
+    width: 100%;
+    height: auto;
+
+    text-align: center;
+    align-self: center;
+    margin-top: 50px;
+}
+.card-weather span{
+    font-size: 40px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+@media(min-width:768px){
+    .section__container--input{
+        height: 90px;
+        padding: 0 40px;
+    }
+    .input--city{
+        width: 400px;
+        font-size: 20px;
+        padding: 7px 35px;
+    }
+    .input-submit{
+        width: 200px;
+        font-size: 20px;
+    }
+    .section__container--display{
+        margin-top: 70px;
+    }
+    .section__container--card{
+        width: 70%;
+        border-radius: 50px ;
+        background: #00BFFF;
+        padding: 40px 30px;
+        margin: 0 auto;
+    }
+    .card__region li{
+        font-size: 25px;
+    }
+    .card__region li:first-child{
+        font-size: 35px;
+        margin: 5px;
+    }
+    .card__temperature{
+        height: 90px;
+    }
+    .temperature{
+        padding: 0 30px;
+        font-size: 25px;
+    }
+    .card-weather{
+
+        margin-bottom: 40px;
+    }
+}
+@media(min-width: 1024px){
+    .section__container--card{
+        width: 50%;
+    }
+    .section__container--input{
+        justify-content: center;
+    }
+    .section__container--input input{
+        margin: 0 30px;
+    }
+    .input--city{
+        width: 400px;
+        font-size: 20px;
+        padding: 7px 35px;
+    }
+    .input-submit{
+        width: 200px;
+        font-size: 20px;
+    }
+}
+@media(min-width: 1200px){
+    .section__container--input{
+        justify-content: center;
+    }
+    .section__container--input input{
+        margin: 0 30px;
+    }
+    .input--city{
+        width: 400px;
+        font-size: 20px;
+        padding: 7px 35px;
+    }
+    .input-submit{
+        width: 200px;
+        font-size: 20px;
+    }
+    .section__container--display{
+        margin-top: 70px;
+    }
+    .section__container--card{
+        width: 30%;
+    }
+    .card__region li{
+        font-size: 25px;
+    }
+    .card__region li:first-child{
+        font-size: 35px;
+        margin: 5px;
+    }
+    .card__temperature{
+        height: 90px;
+    }
+    .temperature{
+        padding: 0 30px;
+        font-size: 25px;
+    }
+    .card-weather{
+
+        margin-bottom: 40px;
+    }
+}
