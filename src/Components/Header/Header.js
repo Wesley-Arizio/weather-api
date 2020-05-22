@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './styles.css';
-import Switch from "react-switch";
+// import Switch from "react-switch";
 
 
  export default class Header extends Component{
@@ -24,7 +24,7 @@ import Switch from "react-switch";
                         <p>Find Weather - API</p>
                     </div>
                     <div className="header__container--switch">    
-                        <Switch className="handle-switch"
+                        {/* <Switch className="handle-switch"
                                 onChange={this.handleChange}
                                 checked={this.state.checked}
                                 uncheckedIcon={false}
@@ -37,7 +37,7 @@ import Switch from "react-switch";
                                 handleDiameter={20}
                                 offColor={'transparent'}
                                 onColor={'transparent'}
-                         />
+                         /> */}
                     </div>
                 </header>
         );
