@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import access_key from  '../../config/api_key.json'
+import validator from  'validator';
+import api_key from  '../../config/api_key.json'
 
 import './styles.css'
 
@@ -28,29 +29,38 @@ export default class Dashboard extends Component{
         });
     }
 
+    getData(response){
+        this.setState({
+            city: "",
+            name: response.data.location.name,
+            country: response.data.location.country,
+            temperature: `${response.data.current.temperature}°C `,
+            weather: response.data.current.weather_descriptions
+        });
+    }
+
     handleSubmit(e){
         const params = {
-            access_key: access_key.access_key,
+            access_key: api_key.access_key,
             query: this.state.city
         }
         e.preventDefault()
-
             try{
-                axios.get("http://api.weatherstack.com/current", { params })
-                    .then(response => {
-                        this.setState({
-                            city: "",
-                            name: response.data.location.name,
-                            country: response.data.location.country,
-                            temperature: `${response.data.current.temperature}° C `,
-                            weather: response.data.current.weather_descriptions
-                        })
-                        console.log(response.data)
-
-                });
+                if(validator.isEmpty(this.state.city)){
+                    alert("Digite o nome de uma cidade")
+                }else{                    
+                    axios.get("http://api.weatherstack.com/current", { params })
+                        .then(response => {
+                            if(response.data.error){
+                                alert("Digite um nome valido")
+                            }else{
+                                this.getData(response)
+                            }    
+                        });
+                } 
             }catch(error){
                     console.log(error)
-                }
+            }
     }
     render(){
         
@@ -61,21 +71,25 @@ export default class Dashboard extends Component{
                         <input 
                             type="text"
                             className="input--city" 
-                            placeholder="Type a city name: " 
+                            placeholder="Name of the city: " 
                             value={ this.state.city}
                             onChange={this.handleChange}
                             />
                         <input type="submit" className="input-submit" name="send" value="SEND" />
+                        
                     </form>
-                    
+                    <div className="section__container--message">
+                        <span className="message">Message error: </span>
+                    </div>
                     <section className="section__container--display">
                         <div className="section__container--card">
                             <ul className="card__region">
-                                <li>{this.state.name} </li>
+                                <li>{this.state.name}</li>
                                 <li>{this.state.country}</li>
                             </ul>
                             <div className="card__temperature">
                                 <div className="temperature">
+                                    
                                     <span> {this.state.temperature} </span>
                                 </div>
                             </div>

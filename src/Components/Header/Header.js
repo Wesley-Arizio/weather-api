@@ -20,7 +20,7 @@ import './styles.css';
         return(
                 <header className="header">
                     <div className="header__container--title">
-                        <p>Find Weather - API</p>
+                        <p>Find the Weather - API</p>
                     </div>
                 </header>
         );
